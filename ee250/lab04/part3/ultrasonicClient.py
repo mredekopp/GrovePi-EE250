@@ -10,3 +10,45 @@ import sys
 sys.path.append('../../../Software/Python/')
 
 import grovepi
+import socket
+
+def Main():
+    # Change the host and port as needed. For ports, use a number in the 9000 
+    # range. 
+    #host = '127.0.0.1'
+    host = '192.168.1.213'
+    port = 5001
+
+#    server_addr = '127.0.0.1'
+    server_addr = '192.168.1.124'
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+    s.bind((host,port))
+
+    # UDP is connectionless, so a client does not formally connect to a server
+    # before sending a message.
+    dst_port = input("destination port-> ")
+
+    # Connect the Grove Ultrasonic Ranger to digital port D4
+    # SIG,NC,VCC,GND
+    ultrasonic_ranger = 3
+
+    while True:
+        try:
+            # Read distance value from Ultrasonic
+            message = str(grovepi.ultrasonicRead(ultrasonic_ranger))
+
+        except TypeError:
+            print ("Error")
+        except IOError:
+            print ("Error")
+
+        #tuples are immutable so we need to overwrite the last tuple
+        server = (server_addr, int(dst_port))
+
+        # for UDP, sendto() and recvfrom() are used instead
+        s.sendto(message.encode('utf-8'), server) 
+    s.close()
+
+if __name__ == '__main__':
+    Main()
