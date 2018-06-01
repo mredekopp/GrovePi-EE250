@@ -21,7 +21,7 @@ import socket
 
 def Main():
     # Connect the Grove LED to digital port D4
-    led = 4
+    led = 2
 
     pinMode(led,"OUTPUT")
     time.sleep(1)
@@ -34,6 +34,7 @@ def Main():
     s.bind((host,port))
 
     s.listen(1)
+    print("Waiting for connection")
     c, addr = s.accept()
     print("Connection from: " + str(addr))
     while True:
