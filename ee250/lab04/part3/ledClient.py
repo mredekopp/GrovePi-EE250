@@ -9,8 +9,8 @@ def Main():
     essentially loop right back to your machine and look for any process 
     listening in on the port specified."""
     # host = '10.1.2.15'
-    host = '192.168.1.124'
-    port = 9002
+    host = '192.168.1.213'
+    port = 9001
 
     c = socket.socket() #by default, the socket constructor creates an TCP/IPv4 socket
     c.connect((host,port))
