@@ -37,7 +37,7 @@ import grovepi
 
 # Connect the Grove Ultrasonic Ranger to digital port D4
 # SIG,NC,VCC,GND
-ultrasonic_ranger = 4
+ultrasonic_ranger = 3
 
 while True:
     try:

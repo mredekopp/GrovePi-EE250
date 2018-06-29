@@ -4,9 +4,11 @@ def Main():
     # Change the host and port as needed. For ports, use a number in the 9000 
     # range. 
     host = '127.0.0.1'
-    port = 1023
+    host = '192.168.1.213'
+    port = 5001
 
-    server_addr = '127.0.0.1'
+#    server_addr = '127.0.0.1'
+    server_addr = '192.168.1.124'
 
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
     s.bind((host,port))

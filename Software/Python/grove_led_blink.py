@@ -37,7 +37,7 @@ import time
 from grovepi import *
 
 # Connect the Grove LED to digital port D4
-led = 4
+led = 2
 
 pinMode(led,"OUTPUT")
 time.sleep(1)
